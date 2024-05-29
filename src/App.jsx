@@ -1,10 +1,10 @@
-
+import MainRouter from "./Router/MainRouter"
 function App() {
   
 
   return (
     <>
-      <h1 className="text-red-600">heloooo</h1>
+       <MainRouter />
     </>
   )
 }
