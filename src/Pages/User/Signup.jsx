@@ -50,7 +50,7 @@ const Signup = () => {
                           validationSchema={validationSchema}
                           onSubmit={handlesubmit}  
                         >
-                           {({ errors,touched,setFieldValue}) => (
+                           {({ errors,touched}) => (
                          <Form>   
                                {/* full name  */}
                        <div className='w-[380px] h-[99px] bg-white flex flex-col pl-4'>
