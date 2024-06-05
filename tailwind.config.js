@@ -8,16 +8,22 @@ export default {
     extend: {
       fontFamily:{
         mainTxt:['Cinzel'],
-      }
-    },
-    keyframes: {
-      fadeIn: {
-        '0%': { opacity: '0' },
-        '100%': { opacity: '1' },
+        loctxt:['Poppins'],
+        locs:['LXGW'],
+        local:['Montserrat']
       },
-    },
-    animation: {
-      'fadeIn': 'fadeIn 5s ease-in-out forwards', // fadeIn is the name of the animation
+      boxShadow: {
+        'inner-custom': 'inset 1px 1px 7px 0px rgba(0,0,0)',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        'fadeIn': 'fadeIn 5s ease-in-out forwards', // fadeIn is the name of the animation
+      },
     },
   },
   plugins: [],
