@@ -16,6 +16,7 @@ import Bookformimg from "../../assets/Busines/Bookform.svg"
 import Voucherimg from "../../assets/Busines/Bvoucher.svg"
 import Reviewimg from "../../assets/Busines/Breview.svg"
 import Alljob from '../../Components/Animations/Alljob'
+import MainHomefooter from '../../Components/Mainhome/mainHomefooter'
 const MainBusinesHome = () => {
   return (
     <div>
@@ -124,10 +125,9 @@ const MainBusinesHome = () => {
                </div>
            </div>
 
-
-       <div className='w-full h-[300px] bg-gray-400 border-2 '>
-           <h1>footer</h1>
-       </div>
+   {/* footer  */}
+   
+      <MainHomefooter btnlink={"/user/signup"} />
 
     </div>
   )
