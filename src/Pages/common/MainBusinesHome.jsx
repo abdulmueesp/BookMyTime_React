@@ -125,7 +125,8 @@ const MainBusinesHome = () => {
            </div>
 
 
-       <div className='w-full h-[300px] bg-white'>
+       <div className='w-full h-[300px] bg-gray-400 border-2 '>
+           <h1>footer</h1>
        </div>
 
     </div>

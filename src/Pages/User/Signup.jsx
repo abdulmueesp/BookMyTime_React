@@ -3,11 +3,22 @@ import logo from"../../assets/logo1.png"
 import bg1 from "../../assets/bg2.jpg"
 import { Formik,Form,Field } from 'formik'
 import * as yup from 'yup';
+import axiosInstance from '../../Instance/axiosinstance';
 
 const Signup = () => {
-  const handlesubmit=(values,{resetForm})=>{
+   const handlesubmit=async (values,{resetForm})=>{
       console.log(values);
+      try{
+         const formData=new FormData()
+         formData.append("name",values.name)
+         formData.append("phone",values.phone)
+         formData.append("email",values.email)
+         formData.append("password",values.password)
+      const response= await axiosInstance.post("/signup",values)
       resetForm();
+      }catch(error){
+         console.log(`error signup ${error}`);
+      }
   }
      const initialValues={
       name:"",
@@ -55,7 +66,7 @@ const Signup = () => {
                                {/* full name  */}
                        <div className='w-[380px] h-[99px] bg-white flex flex-col pl-4'>
                           <label htmlFor="" className='font-bold'>Full name</label>
-                          <Field type="text" name="name" placeholder="Enter name" className={`userinput_box`} />
+                          <Field  type="text" name="name"   placeholder="Enter name" className={`userinput_box`} />
                           {errors.name && touched.name ? <div className='text-red-600'>{errors.name}</div> : null}
                        </div>
                           {/* Email  */}
