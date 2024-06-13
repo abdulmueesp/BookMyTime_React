@@ -7,15 +7,10 @@ import axiosInstance from '../../Instance/axiosinstance';
 
 const Signup = () => {
    const handlesubmit=async (values,{resetForm})=>{
-      console.log(values);
       try{
-         const formData=new FormData()
-         formData.append("name",values.name)
-         formData.append("phone",values.phone)
-         formData.append("email",values.email)
-         formData.append("password",values.password)
       const response= await axiosInstance.post("/signup",values)
       resetForm();
+
       }catch(error){
          console.log(`error signup ${error}`);
       }
