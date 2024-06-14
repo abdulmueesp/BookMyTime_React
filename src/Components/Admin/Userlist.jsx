@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import axiosInstance from '../../Instance/axiosinstance'
 const Userlist = () => {
-    const [userdata,setuserdata]=useState()
+    const [userdata,setuserdata]=useState([])
 
+    // delete data
+    async function handledelete(id){
+          try{
+            const response =await axiosInstance.delete(`/admin/userlists/${id}`)
+             if(response.status==200){
+              // setuserdata(userdata.filter(user=> user._id !== id))
+             }
+          }catch(error){
+            console.log(`handledelete function error is ${error}`);
+          }
+    }
+
+
+        // fetching 
       async function fetchdata(){
+          try{
           const response=await axiosInstance.get("/admin/userlists")
           setuserdata(response.data.userdata)
-          // console.log(response.data);
+          }catch(error){
+            console.log(`admin userlist error is ${error}`);
+          }
       }
+
       useEffect(()=>{
         fetchdata()
       },[])
@@ -29,18 +47,21 @@ const Userlist = () => {
       </tr>
     </thead>
     <tbody >
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-5 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
+      {userdata.map((user)=>(
+      <tr key={user._id} className="bg-white text-center">
+        <td className="p-3 sm:p-5 pb-1">{user.name}</td>
+        <td className="p-3 sm:p-4 pb-1">{user.email}</td>
+        <td className="p-3 sm:p-4 pb-1">{user.phone}</td>
         <td className="p-3 sm:p-4 pb-1">
           <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
         </td>
         <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
+          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700"
+          onClick={()=>handledelete(user._id)}
+          >Delete</button>
         </td> 
       </tr>
-     
+     ))}
     </tbody>
   </table>
 </div>
