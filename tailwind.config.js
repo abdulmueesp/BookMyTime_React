@@ -22,9 +22,23 @@ export default {
         },
       },
       animation: {
-        'fadeIn': 'fadeIn 5s ease-in-out forwards', // fadeIn is the name of the animation
+        'fadeIn': 'fadeIn 5s ease-in-out forwards',// fadeIn is the name of the animation
+        'speedfade' :'fadeIn 1s ease-in-out forwards' 
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.hide-scrollbar': {
+          'scrollbar-width': 'none', /* Firefox */
+          '-ms-overflow-style': 'none',  /* Internet Explorer 10+ */
+          '&::-webkit-scrollbar': { /* WebKit */
+            'width': '0',
+            'height': '0',
+          },
+        },
+      });
+    }
+  ],
 }
