@@ -8,7 +8,7 @@ const Userlist = () => {
           try{
             const response =await axiosInstance.delete(`/admin/userlists/${id}`)
              if(response.status==200){
-              // setuserdata(userdata.filter(user=> user._id !== id))
+              setuserdata(userdata.filter(user=> user._id !== id))
              }
           }catch(error){
             console.log(`handledelete function error is ${error}`);
