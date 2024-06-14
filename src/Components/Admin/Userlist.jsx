@@ -1,11 +1,22 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import axiosInstance from '../../Instance/axiosinstance'
 const Userlist = () => {
+    const [userdata,setuserdata]=useState()
+
+      async function fetchdata(){
+          const response=await axiosInstance.get("/admin/userlists")
+          setuserdata(response.data.userdata)
+          // console.log(response.data);
+      }
+      useEffect(()=>{
+        fetchdata()
+      },[])
+
   return (
     <div>
      
         {/* table  */}
-        <div className=' h-[600px] bg-black mt-[50px]  pl-[3px] pr-[3px] pb-[3px] border-t-[10px] rounded-tl-2xl rounded-tr-2xl border-black
+        <div className='  max-h-[600px] bg-black mt-[50px]  pl-[3px] pr-[3px] pb-[3px] border-t-[10px] rounded-tl-2xl rounded-tr-2xl border-black
        2xl:w-[1000px] 2xl:ml-[100px] xl:w-[860px] xl:ml-[60px] lg:w-[750px] lg:ml-[43px] md:ml-[15px] md:w-[700px] sm:w-[550px] sm:ml-[15px] ml-[8px] w-[300px]  overflow-x-auto overflow-y-auto hide-scrollbar'>
   <table className="min-w-full ">
     <thead>
@@ -27,132 +38,9 @@ const Userlist = () => {
         </td>
         <td className="p-3 sm:p-4 pb-1">
           <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>
-        
+        </td> 
       </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      <tr className="bg-white text-center">
-        <td className="p-3 sm:p-4 pb-1">abdul Muees</td>
-        <td className="p-3 sm:p-4 pb-1">abdulmueesp5@gmail.com</td>
-        <td className="p-3 sm:p-4 pb-1">6238086620</td>
-        <td className=" p-3 sm:p-4 pb-1">
-          <button className=" px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Block</button>
-        </td>
-        <td className="p-3 sm:p-4 pb-1">
-          <button className="px-1 sm:px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700">Delete</button>
-        </td>  
-      </tr>
-      
-      
+     
     </tbody>
   </table>
 </div>
