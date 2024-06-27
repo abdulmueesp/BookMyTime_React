@@ -4,6 +4,7 @@ import UserRouter from "./UserRouter";
 import MainHome from "../Pages/common/MainHome";
 import MainBusinesHome from "../Pages/common/MainBusinesHome";
 import AdminRouter from "./AdminRouter";
+import OwnerRouter from "./OwnerRouter";
 const MainRouter = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const MainRouter = () => {
           <Route path="/Busineshome" element={<MainBusinesHome/>} />
           <Route path="/user/*" element={<UserRouter />} />
           <Route path="/admin/*" element={<AdminRouter/>} />
+          <Route path="/owner/*" element={<OwnerRouter/>} />
         </Routes>
       </BrowserRouter>
     </div>
