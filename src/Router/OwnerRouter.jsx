@@ -11,7 +11,7 @@ const OwnerRouter = () => {
                 <OwnerHome />
                 <div>
                     <Routes>
-                    
+                   
                     </Routes>
                 </div>
             </div>

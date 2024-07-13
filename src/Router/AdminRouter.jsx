@@ -1,6 +1,6 @@
 import React from 'react'
 import Adminsidebar from "../Components/Admin/AdminSidebar"
-import Userslist from "../Components/Admin/Userlist"
+import Userlist from '../Pages/Admin/Userlist'
 import { Route, Routes } from 'react-router-dom'
 import Shoplist from '../Components/Admin/Shoplist'
 const AdminRouter = () => {
@@ -11,7 +11,7 @@ const AdminRouter = () => {
            <Adminsidebar /> 
            <div>
                <Routes>
-                <Route path='userlist' element={<Userslist />} />
+                <Route path='userlist' element={<Userlist/>} />
                 <Route path='shoplist' element={<Shoplist />} />
                 </Routes>  
            </div>

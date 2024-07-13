@@ -6,10 +6,10 @@ import * as yup from 'yup';
 import axiosInstance from '../../Instance/axiosinstance';
 
 const Signup = () => {
-   const handlesubmit=async (values,{resetForm})=>{
+   const handlesubmit=async (values)=>{
       try{
       const response= await axiosInstance.post("/signup",values)
-      resetForm();
+
 
       }catch(error){
          console.log(`error signup ${error}`);

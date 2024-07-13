@@ -5,6 +5,7 @@ import MainHome from "../Pages/common/MainHome";
 import MainBusinesHome from "../Pages/common/MainBusinesHome";
 import AdminRouter from "./AdminRouter";
 import OwnerRouter from "./OwnerRouter";
+import OwnerSignup from "../Pages/Owner/OwnerSignup";
 const MainRouter = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const MainRouter = () => {
         <Routes>
           <Route path="/" element={<MainHome/>} />
           <Route path="/Busineshome" element={<MainBusinesHome/>} />
+          <Route path="/ownersignup" element={<OwnerSignup/>} />
           <Route path="/user/*" element={<UserRouter />} />
           <Route path="/admin/*" element={<AdminRouter/>} />
           <Route path="/owner/*" element={<OwnerRouter/>} />
